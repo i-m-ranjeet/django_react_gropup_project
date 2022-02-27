@@ -12,14 +12,14 @@ function DetailProduct() {
         axios.get(`http://127.0.0.1:8000/api/${id}`).then(res=>{
           setProduct([res.data])
         })
-      })
+      },[])
       const deleteProduct = ()=>{
         axios.delete(`http://127.0.0.1:8000/api/${id}`).then(res=>{
         navigate('/')
         })
       }
   return (
-    <div className="container w-50">
+    <div className="container w-50 py-5">
         {
           product.map(item=>(
             <Card className="m-4 p-5" border="secondary">
@@ -33,9 +33,9 @@ function DetailProduct() {
                     {item.category}
                 </Card.Title>
                 <Card.Title>
-                    {item.price}
+                    {item.price} 
                 </Card.Title>
-                    <Link className='btn text-info warning-btn p-0 px-2' to="/update"><Button variant="warning" size="sm">Update</Button></Link>
+                    <Link className='btn text-info warning-btn p-0 px-2' to={`/update/${item.id}`} ><Button variant="warning" size="sm">Update</Button></Link>
                     <Button variant="primary" className="bg-danger text-light" onClick={deleteProduct}>Delete</Button>
                 </Card.Body>
             </Card>

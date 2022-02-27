@@ -11,7 +11,7 @@ function ShowProducts() {
     },[])
 
     return (
-        <div className='container w-80 ' fluid style={{
+        <div className='container w-80 py-5' fluid style={{
             display:"flex", aligiItems:"center",justifyContent:"center",flexDirection:"row",flexWrap:"wrap"
         }}>
 
